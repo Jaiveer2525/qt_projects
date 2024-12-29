@@ -22,6 +22,34 @@ private slots:
 
     void on_sym_equal_clicked();
 
+    void on_num_0_clicked();
+
+    void on_num_1_clicked();
+
+    void on_num_2_clicked();
+
+    void on_num_3_clicked();
+
+    void on_num_4_clicked();
+
+    void on_num_5_clicked();
+
+    void on_num_6_clicked();
+
+    void on_num_7_clicked();
+
+    void on_num_8_clicked();
+
+    void on_num_9_clicked();
+
+    void on_sym_plus_clicked();
+
+    void on_sym_minus_clicked();
+
+    void on_sym_multiply_clicked();
+
+    void on_sym_division_clicked();
+
 private:
     Ui::Qt6_Calculator *ui;
 };
