@@ -8,6 +8,7 @@ Qt6_Calculator::Qt6_Calculator(QWidget *parent)
     , ui(new Ui::Qt6_Calculator)
 {
     ui->setupUi(this);
+    ui->lineEdit->setAlignment(Qt::AlignRight);
 }
 
 Qt6_Calculator::~Qt6_Calculator()
@@ -28,7 +29,7 @@ std::string* splitExpression(const QString& expression, int& size) {
         if (ch.isDigit()) {
             // If the character is a digit, build the number string
             currentNumber += ch.toLatin1();
-        } else if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^') {
+        } else if (ch == '+' || ch == '-' || ch == 'x' || ch == '/' || ch == '^') {
             // If it's an operator, push the current number and operator to the result
             if (!currentNumber.empty()) {
                 result[index++] = currentNumber;
@@ -62,7 +63,7 @@ double evaluateExpression(std::string* result, int size) {
             currentResult += nextNumber;
         } else if (op == "-") {
             currentResult -= nextNumber;
-        } else if (op == "*") {
+        } else if (op == "x") {
             currentResult *= nextNumber;
         } else if (op == "/") {
             if (nextNumber != 0) {
@@ -178,7 +179,7 @@ void Qt6_Calculator::on_sym_minus_clicked()
 
 void Qt6_Calculator::on_sym_multiply_clicked()
 {
-    ui->lineEdit->insert("*");
+    ui->lineEdit->insert("x");
 }
 
 
@@ -187,8 +188,4 @@ void Qt6_Calculator::on_sym_division_clicked()
     ui->lineEdit->insert("/");
 }
 
-//polish
-//try to understand what the feunctions are
-//replace nested ifs with switch
-//* with x everywhere
-//allign lineEdit to right
+
